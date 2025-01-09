@@ -1,0 +1,3 @@
+username,email,password,userId,productId,quantity,rating,comment
+test_user1,test1@example.com,password1,1,1,1,5,"Amazing product!"
+test_user2,test2@example.com,password2,2,2,2,4,"Good but expensive."
