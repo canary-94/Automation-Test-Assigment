@@ -1,0 +1,227 @@
+{
+	"info": {
+		"_postman_id": "510100aa-1ca9-4620-84ee-421c48e4d12b",
+		"name": "Part3. Task2. Full Flow",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json",
+		"_exporter_id": "40886749"
+	},
+	"item": [
+		{
+			"name": "Create new user",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 201\", function () {\r",
+							"    pm.response.to.have.status(201);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"User creation validation\", function () {\r",
+							"    const jsonData = pm.response.json();\r",
+							"    pm.expect(jsonData).to.have.property(\"id\");\r",
+							"    pm.expect(jsonData.username).to.eql(pm.variables.get(\"username\"));\r",
+							"    pm.expect(jsonData.email).to.eql(pm.variables.get(\"email\"));\r",
+							"});\r",
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				},
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							"\r",
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"username\": \"{{username}}\",\r\n  \"email\": \"{{email}}\",\r\n  \"password\": \"{{password}}\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "http://localhost:3000/users"
+			},
+			"response": []
+		},
+		{
+			"name": "Search product",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"All products belong to Electronics\", function () {\r",
+							"    const jsonData = pm.response.json();\r",
+							"    jsonData.forEach(product => {\r",
+							"        pm.expect(product.categoryId).to.eql(1);\r",
+							"    });\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Response contains at least one product\", function () {\r",
+							"    const jsonData = pm.response.json();\r",
+							"    pm.expect(jsonData.length).to.be.above(0);\r",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/products?categoryId=1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"products"
+					],
+					"query": [
+						{
+							"key": "categoryId",
+							"value": "1"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Place order",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 201\", function () {\r",
+							"    pm.response.to.have.status(201);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Order validation\", function () {\r",
+							"    const jsonData = pm.response.json();\r",
+							"    \r",
+							"    pm.expect(jsonData).to.have.property(\"id\");\r",
+							"\r",
+							"    jsonData.userId = Number(jsonData.userId);\r",
+							"    pm.expect(jsonData.userId).to.eql(pm.variables.get(\"userId\")); // \r",
+							"\r",
+							"    pm.expect(jsonData.items).to.be.an(\"array\").that.is.not.empty;\r",
+							"\r",
+							"    jsonData.items.forEach(item => {\r",
+							"    item.productId = Number(item.productId);   \r",
+							"    item.quantity = Number(item.quantity);     \r",
+							"\r",
+							"    pm.expect(item.productId).to.eql(pm.variables.get(\"productId\"));  \r",
+							"    pm.expect(item.quantity).to.eql(pm.variables.get(\"quantity\"));   \r",
+							"});\r",
+							"});\r",
+							"\r",
+							"\r",
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"userId\": \"{{userId}}\",\r\n  \"status\": \"processing\",\r\n  \"items\": [\r\n    {\r\n      \"productId\": \"{{productId}}\",\r\n      \"quantity\": \"{{quantity}}\"\r\n    }\r\n  ]\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "http://localhost:3000/orders"
+			},
+			"response": []
+		},
+		{
+			"name": "Write reviews",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 201\", function () {\r",
+							"    pm.response.to.have.status(201);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Review validation\", function () {\r",
+							"    const jsonData = pm.response.json();\r",
+							"    \r",
+							"    pm.expect(jsonData).to.have.property(\"id\");\r",
+							"    pm.expect(jsonData).to.have.property(\"userId\");\r",
+							"    pm.expect(jsonData).to.have.property(\"productId\");\r",
+							"    pm.expect(jsonData).to.have.property(\"rating\");\r",
+							"    \r",
+							"    const userId = pm.variables.get(\"userId\");\r",
+							"    const productId = pm.variables.get(\"productId\");\r",
+							"    const rating = pm.variables.get(\"rating\");\r",
+							"    \r",
+							"    jsonData.userId = Number(jsonData.userId);\r",
+							"    jsonData.productId = Number(jsonData.productId);\r",
+							"    jsonData.rating = Number(jsonData.rating);\r",
+							"    pm.expect(jsonData.userId).to.eql(userId);\r",
+							"    pm.expect(jsonData.productId).to.eql(productId);\r",
+							"    pm.expect(jsonData.rating).to.eql(rating);\r",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"userId\": \"{{userId}}\",\r\n  \"productId\": \"{{productId}}\",\r\n  \"rating\": \"{{rating}}\",\r\n  \"comment\": \"{{comment}}\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "http://localhost:3000/reviews"
+			},
+			"response": []
+		}
+	]
+}
