@@ -25,7 +25,7 @@
     },
     "include": [
         "test",
-        "wdio.conf.ts",
+        "PART 2 - UI AUTOMATION TEST/wdio.conf.ts",
         "tests"
     ]
 }
