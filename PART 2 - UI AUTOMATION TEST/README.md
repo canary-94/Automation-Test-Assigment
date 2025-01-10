@@ -5,7 +5,7 @@
 + Docker (to run the web application locally)
 + Java (for generating Allure reports)
 + Visual Studio Code
-# Make sure you have Docker and lanch app on local:
+# Make sure you have Docker and lanch web The Internet successfully on local:
 ![image](https://github.com/user-attachments/assets/4a716431-db9f-48fa-9715-fe13a3983f29)
 
 Below, we can set up and run tests using WebdriverIO with Cucumber and Gherkin:
