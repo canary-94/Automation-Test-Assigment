@@ -15,7 +15,7 @@ Select a folder and run below command at your Windows Powershell to clone repo:
 + git clone https://github.com/canary-94/Automation-Test-Assignment.git
   ![image](https://github.com/user-attachments/assets/6f090588-9e0a-4605-bec5-fb75a078e300)
 
-# Step 2: 
+# Step 2: Install node modules
 + Using Visual Studio Code to open folder PART 2 - UI AUTOMATION TEST
 + Run command **npm install** to install node modules
 
