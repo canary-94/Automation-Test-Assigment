@@ -20,8 +20,10 @@ Select a folder and run below command at your Windows Powershell to clone repo:
 + Run command **npm install** to install node modules
 
 # Step 3: Run the test:
-Config and run the test feature file by Terminal with 
+Config and run the test feature file by Terminal with:  
 **npx wdio run wdio.conf.ts --spec ./tests/features/login.feature**
+![image](https://github.com/user-attachments/assets/6fe6dde2-3b9e-4784-97d3-294c4d19fc89)
+
 ![image](https://github.com/user-attachments/assets/11e4eae7-5593-450d-90ae-2fdf44d60578)
 you would see the test result:
 
