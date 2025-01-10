@@ -1,6 +1,7 @@
 # Part 3: API Automation Test
 
-Pre-condition: You have Docker and can lanch the JSON Server http://localhost:3000 to see APIs.
+Pre-condition: You have Docker and can lanch the JSON Server http://localhost:3000 to see APIs:
+
 ![image](https://github.com/user-attachments/assets/7cb43590-2154-466f-b8dc-e493f7b0af96)
 
 
@@ -8,6 +9,7 @@ Below we can setup and excute test using POSTMAN:
 # Step 1: Download & Install POSTMAN tool
 You can download here: https://www.postman.com/downloads/
 # Step 2: Download & Import postman collection to your postman
+2 files postman collections have been attached above.
 ![image](https://github.com/user-attachments/assets/076b2826-5ecc-47dc-bdf1-e30ab628c6c8)
 
 # Step 3: Run the test
