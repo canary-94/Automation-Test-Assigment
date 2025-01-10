@@ -6,10 +6,12 @@ Below we can setup and excute test using POSTMAN:
 You can download here: https://www.postman.com/downloads/
 # Step 2: Download & Import postman collection to your postman
 # Step 3: Run the test
-1/ Open the Collection Runner
+1/ Open the Collection Runner:
 In Postman, go to the Collections tab.
 Hover over your collection name and click on the three dots (options menu).
-Select Run.
+Select Run Collection.
+![image](https://github.com/user-attachments/assets/d4c8f582-63d7-449d-afb9-76cd9561f0b0)
+
 
 2/ Configure the Run Settings
 + Select the Environment: If you're using an environment (e.g., for dynamic variables), select it here.
