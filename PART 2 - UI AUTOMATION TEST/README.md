@@ -1,5 +1,4 @@
-# Automation-Test-Assigment
-Part 2: UI Automation Test
+# Part 2: UI Automation Test
 # Step 1: Ensure the following tools are installed:
 + Node.js 
 + npm (comes with Node.js)
