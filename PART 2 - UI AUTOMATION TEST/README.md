@@ -1,5 +1,4 @@
-# Automation-Test-Assigment
-Part 2: UI Automation Test
+# Part 2: UI Automation Test
 # Ensure the following tools are installed:
 + Node.js 
 + npm (comes with Node.js)
@@ -8,6 +7,8 @@ Part 2: UI Automation Test
 + Visual Studio Code
 # Make sure you have Docker and lanch app on local:
 ![image](https://github.com/user-attachments/assets/4a716431-db9f-48fa-9715-fe13a3983f29)
+
+Below, we can set up and run tests using WebdriverIO with Cucumber and Gherkin:
 
 # Step 1: Clone repositories
 Select a folder and run below command at your Windows Powershell to clone repo:
