@@ -1,6 +1,7 @@
 # Part 3: API Automation Test
 
 Pre-condition: You have Docker and can lanch the JSON Server http://localhost:3000 to see APIs.
+
 Below we can setup and excute test using POSTMAN:
 # Step 1: Download & Install POSTMAN tool
 You can download here: https://www.postman.com/downloads/
@@ -21,15 +22,20 @@ Delay: You can introduce a delay between requests if needed.
 Save responses: Optionally save the responses for later review.
 
 3/ Start the Run
-Click the Run button to start executing the requests in the collection. You can run all requests in the collection, or select specific ones. You’ll see the results for each request, including the status, response time, and test results.
+Click the Run button to start executing the requests in the collection. You can run all requests in the collection, or select specific ones. 
+![image](https://github.com/user-attachments/assets/c9e3dc7e-2089-431c-a4ba-67e68a620e20)
+
 
 # Step 4: Review Results
 Once the run is completed, you will be able to view:
 Request results: Each request will show whether it passed or failed.
 Test results: Any tests you’ve written in the Tests tab will be displayed here (e.g., whether the response has the correct status code).
 Logs: View the request and response details for debugging.
+![image](https://github.com/user-attachments/assets/15d43763-25ec-4aca-a165-e215d46202cd)
+
 
  # Step5: Export the Results
 If you need to share the results, you can export them:
 Click on the Export Results button.
 Choose the format you want to export the results in (e.g., HTML, JSON).
+
